@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  qbittorrent:
+    image: ghcr.io/aftrs-void/aftrs-nordvpn-qbittorrent:${VERSION:-latest}
+    container_name: qbittorrent
+    environment:
+      - PUID=99        # Unraid 'nobody' user is typically 99
+      - PGID=100       # Unraid 'users' group is typically 100
+      - TZ=America/Los_Angeles
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    volumes:
+      - /mnt/user/appdata/qbittorrent/config:/config
+      - /mnt/user/Downloads:/downloads
+    ports:
+      - "8080:8080"
+      - "6881:6881/tcp"
+      - "6881:6881/udp"
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+# /custom-cont-init.d/10-seed-config
+set -e
+
+CFG_DIR="/config/qBittorrent"
+CFG_FILE="${CFG_DIR}/qBittorrent.conf"
+DEFAULTS="/defaults/qBittorrent.conf"
+
+mkdir -p "${CFG_DIR}"
+
+if [ ! -f "${CFG_FILE}" ]; then
+  echo "[init] qBittorrent: seeding default config to ${CFG_FILE}"
+  cp -f "${DEFAULTS}" "${CFG_FILE}"
+  chown "${PUID:-1000}":"${PGID:-1000}" "${CFG_FILE}"
+else
+  echo "[init] qBittorrent: existing config found at ${CFG_FILE} (leaving in place)"
+fi
