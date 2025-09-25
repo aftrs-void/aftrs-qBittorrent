@@ -1,0 +1,7 @@
+FROM lscr.io/linuxserver/qbittorrent:latest
+
+# Copy VueTorrent files
+COPY container/vuetorrent/public/ /usr/local/qbittorrent/dist/
+
+# Copy only the config defaults, not the initialization script
+COPY container/defaults/qBittorrent.conf /defaults/qBittorrent.conf

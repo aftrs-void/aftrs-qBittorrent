@@ -1,5 +1,4 @@
 #!/usr/bin/with-contenv bash
-# /custom-cont-init.d/10-seed-config
 set -e
 
 CFG_DIR="/config/qBittorrent"

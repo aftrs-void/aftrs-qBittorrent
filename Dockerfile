@@ -11,7 +11,7 @@ LABEL org.opencontainers.image.licenses="MIT"
 COPY container/defaults/qBittorrent.conf /defaults/qBittorrent.conf
 
 # Add VueTorrent UI
-COPY container/vuetorrent/public/ /usr/local/qbittorrent/dist/
+COPY container/vuetorrent/public/ /opt/vuetorrent/
 
 # Add an s6 custom init script to seed /config on first start.
 # LinuxServer containers execute /custom-cont-init.d/* before services.

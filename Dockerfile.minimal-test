@@ -1,0 +1,7 @@
+FROM lscr.io/linuxserver/qbittorrent:latest
+
+# Copy minimal config only
+COPY container/defaults/qBittorrent.conf /defaults/qBittorrent.conf
+
+# Add initialization script
+COPY container/rootfs/ /
